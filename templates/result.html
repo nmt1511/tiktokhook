@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả kịch bản video bán hàng</title>
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        textarea {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Kết quả kịch bản video bán hàng</h2>
+
+    <textarea id="script-output" >
+        {{ script }}
+    </textarea>
+
+    <button onclick="copyToClipboard()">Copy</button>
+</div>
+
+<script>
+    function copyToClipboard() {
+        // Lấy nội dung từ textarea
+        var textArea = document.getElementById('script-output');
+        textArea.select();
+        textArea.setSelectionRange(0, 99999); // Cho phép chọn tất cả nội dung
+
+        // Sao chép nội dung vào clipboard
+        document.execCommand('copy');
+
+        // Thông báo khi đã sao chép
+        alert("Đã sao chép vào clipboard!");
+    }
+</script>
+
+</body>
+</html>

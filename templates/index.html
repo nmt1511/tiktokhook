@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CÔNG CỤ VIẾT KỊCH BẢN THOẠI LỒNG TIẾNG VIDEO</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>VIẾT KỊCH BẢN THOẠI LỒNG TIẾNG VIDEO</h2>
+    <form action="/process" method="POST">
+        <!-- Input for Content -->
+        <div class="form-group">
+            <label for="input_content">Điền thông tin sản phẩm vào đây:</label>
+            <textarea id="input_content" name="input_content" required></textarea>
+        </div>
+
+        <!-- Dropdown to choose the model -->
+        <div class="form-group">
+            <label for="model_choice">Chọn mô hình AI:</label>
+            <select id="model_choice" name="model_choice" required>
+                <option value="gemini-2.0-flash-exp">gemini-2.0-flash-exp</option>
+                <option value="gemini-1.5-flash">gemini-1.5-flash</option>
+                <option value="gemini-1.5-pro">gemini-1.5-pro</option>
+            
+            </select>
+        </div>
+
+        <button type="submit">Bắt đầu viết kịch bản</button>
+    </form>
+
+    {% if script %}
+    <h3>Kịch bản sản phẩm:</h3>
+    <p>{{ script }}</p>
+    {% endif %}
+</div>
+
+<script>
+    // Đặt placeholder cho textarea với nhiều dòng
+    document.getElementById('input_content').setAttribute('placeholder', `Tên Sản Phẩm (nên nhập cái tiêu đề sản phẩm)
+Nhập giá sản phẩm (cần thiết)
+Nhập 1 số điểm nổi bật của sản phẩm ở phần mô tả của sản phẩm
+Số Lượt Bán (không bắt buộc)
+Số lượt đánh giá (không bắt buộc)`);
+</script>
+</body>
+</html>
